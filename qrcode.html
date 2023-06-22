@@ -1,10 +1,48 @@
-<div class="header">
-    <div class="box">
-      <h1>QR Code Generator</h1>
-      <hr>
-      <div class="sqrcode"></div>
-      <div class="qrcode"></div>
-      <input type="text" placeholder="Paste an URL or enter text here" onchange="generateQr()"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR by Karim</title>
+    <link rel="stylesheet" href="style.css">
+    <img src="https://karimthadream.com/wp-content/uploads/2020/10/3D-Logo-400.png" class="w-50 logo-footer" >
+</head>
+<body>
+  <!-- for simplicity reason let  imported the QR rendering from an open source -->
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+<div class="form">
+  <!-- simple heading -->
+  <h1>QR Code Generator</h1>
+  <form>
+    <input type="url" id="inputValue" name="inputValue" placeholder="https://karimporgo.com" required />
+
+    <div id="qrcode-container">
+        <div id="qrcode" class="qrcode"></div>
     </div>
-  </div>
+    <!-- Generate qr code without extra rendering -->
+    <button type="button" onclick="generateQRCode()">Generate QR Code</button>
+    
+</form>
+
+
+<!-- Method to fetch input an generate qr code -->
+  <script type="text/javascript">
+    function generateQRCode() {
+      let inputValue = document.getElementById("inputValue").value;
+      if (inputValue) {
+        let qrcodeContainer = document.getElementById("qrcode");
+        qrcodeContainer.innerHTML = "";
+        new QRCode(qrcodeContainer, inputValue);
+ 
+        document.getElementById("qrcode-container").style.display = "block";
+      } else {
+        alert("Please enter a valid URL");
+      }
+    }
+  </script>
+</div>
+</body>
+</html>
   
