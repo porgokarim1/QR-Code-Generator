@@ -9,8 +9,8 @@ body{
   padding: 16px;
   background: #ffffff;
   position: absolute;
-  top: 10%;
-  left: 50%;
+  top: 40%;
+  left: 40%;
   transform: translate(-50%,-50%);
 }
 .form h1 {
